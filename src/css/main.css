@@ -54,6 +54,7 @@
 .search-btn:hover,
 .search-btn:focus {
   background: #6c8cff;
+  transform: scale(1.05);
 }
 
 /* LOADER */
@@ -158,4 +159,30 @@
   line-height: 2;
   letter-spacing: 0.04em;
   color: #2e2f42;
+}
+
+.load-more-btn {
+  display: block;
+  margin: 32px auto 44px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background: #4e75ff;
+  border: none;
+  margin-top: 32px;
+  margin-bottom: 44px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.load-more-btn:hover {
+  background: #6c8cff;
+  transform: scale(1.05);
+}
+
+.is-hidden {
+  display: none;
 }
