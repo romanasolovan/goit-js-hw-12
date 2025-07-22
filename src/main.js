@@ -51,7 +51,9 @@ form.addEventListener('submit', async (event) => {
         } else {
             createGallery(data.hits);
 
-            if (data.totalHits > perPage) {
+            const maxPages = Math.ceil(data.totalHits / perPage);
+
+            if (maxPages > 1) {
                 showLoadMoreButton();
             }
         }
@@ -82,8 +84,9 @@ loadMoreBtn.addEventListener('click', async () => {
                 behavior: 'smooth',
             });
         }
+
         const maxPages = Math.ceil(data.totalHits / perPage);
-        if (maxPages > 1) {
+        if (currentPage < maxPages) {
             showLoadMoreButton();
         } else {
             hideLoadMoreButton();
