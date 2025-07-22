@@ -74,10 +74,20 @@ loadMoreBtn.addEventListener('click', async () => {
         const data = await getImagesByQuery(currentQuery, currentPage);
         createGallery(data.hits);
 
+        const firstCard = document.querySelector('.gallery-item');
+        if (firstCard) {
+            const { height } = firstCard.getBoundingClientRect();
+            window.scrollBy({
+                top: height * 2,
+                behavior: 'smooth',
+            });
+        }
         const maxPages = Math.ceil(data.totalHits / perPage);
-        if (currentPage >= maxPages) {
+        if (maxPages > 1) {
+            showLoadMoreButton();
+        } else {
             hideLoadMoreButton();
-            
+
             iziToast.info({
                 message: "You've reached the end of search results.",
                 position: 'topRight',
